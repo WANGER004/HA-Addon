@@ -1,0 +1,31 @@
+{
+  "name": "Ha-WebDAV-Mount",
+  "version": "1.0.1",
+  "slug": "ha_webdav_mount_ui",
+  "description": "通过交互式 UI 配置将 WebDAV 存储挂载到 Home Assistant。",
+  "url": "https://github.com/your-repo/ha-webdav-mount", # [建议] 添加你的项目地址
+  "arch": ["amd64", "armhf", "armv7", "aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 80,
+  "panel_icon": "mdi:folder-network",
+  "options": {
+    "webdav_url": "http://192.168.0.66:5244/",
+    "username": "",
+    "password": "",
+    "mount_path": "/mnt/webdav"
+  },
+  "schema": {
+    "webdav_url": "str",
+    "username": "str",
+    "password": "str",
+    "mount_path": "str"
+  },
+  "environment": {
+    "TZ": "Europe/Amsterdam" # [建议] 添加时区支持
+  },
+  "privileged": true, # [重要] 挂载文件系统需要特权模式
+  "devices": [],
+  "host_network": false
+}
