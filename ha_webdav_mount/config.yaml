@@ -1,0 +1,39 @@
+name: "Ha-WebDAV-Mount"
+version: "1.0.2"
+slug: "ha_webdav_mount"
+description: "WebDAV 挂载到 Home Assistant（含 Web UI）"
+url: "https://gitee.com/wanger004/HA-Addon"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+
+startup: services
+boot: auto
+
+host_network: true
+
+options:
+  mount_path: "/mnt/webdav"
+  webdav_url: "https://example.com/webdav"
+  username: "admin"
+  password: "123456"
+
+schema:
+  mount_path: str
+  webdav_url: str
+  username: str
+  password: str
+
+ports:
+  8099/tcp: 8099
+
+privileged:
+  - SYS_ADMIN
+
+map:
+  - config:rw
+  - share:rw
+  - ssl:rw
+
+watchdog: "http://[HOST]:8099/"

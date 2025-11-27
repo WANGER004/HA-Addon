@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+set -e
+
+echo "[webdav] Starting WebDAV service..."
+
+# 使用脚本挂载
+/usr/bin/mount_webdav.sh &
+
+# 启动前端 Flask WebUI
+echo "[webdav] Starting Flask UI..."
+python3 /web/app.py

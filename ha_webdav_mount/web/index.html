@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ha-WebDAV-Mount UI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Ha-WebDAV-Mount 插件</h2>
+  <div class="container">
+
+    <label>WebDAV URL:</label>
+    <input type="text" id="url"><br>
+
+    <label>用户名:</label>
+    <input type="text" id="username"><br>
+
+    <label>密码:</label>
+    <input type="password" id="password"><br>
+
+    <button onclick="mount()">挂载</button>
+    <button onclick="unmount()">卸载</button>
+
+    <p>状态: <span id="status">未知</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
